@@ -168,6 +168,7 @@ a:active {
 /* MAIN */
 .main {
   margin-top: 80px;
+  overflow-x: hidden;
 }
 
 .main__title {
@@ -287,9 +288,9 @@ a:active {
 
 .hero__carousel-transition {
   position: absolute;
-  left: -12rem;
-  top: -8rem;
-  width: 15rem;
+  left: -40rem;
+  top: -20rem;
+  width: 50rem;
   height: 200%;
   background-color: #f76c6c;
   transform: rotate(25deg);
@@ -327,7 +328,7 @@ a:active {
 }
 
 .carousel-active {
-  animation: slide-in 2s linear 1 forwards;
+  animation: fade-in 2s linear 1 forwards;
 }
 
 /* ABOUT */
@@ -519,7 +520,8 @@ input:focus, textarea:focus {
 /* ----- Mobile ----- */
 @media screen and (max-width: 800px) {
     .contact__form {
-        width: 100%;
+        width: 90%;
+        padding: 5rem 0;
     }
 }
 
@@ -531,5 +533,14 @@ input:focus, textarea:focus {
   }
   100% {
     transform: translateX(0);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
   }
 }
