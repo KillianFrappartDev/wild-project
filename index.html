@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Development Tech Challenge</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+      integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- Dynamic Components -->
+    <div class="backdrop"></div>
+    <div class="sidebar">
+      <a href="#about" class="sidebar__item">About</a>
+      <a href="#family" class="sidebar__item">Royal Family</a>
+      <a href="#assets" class="sidebar__item">Royal Assets</a>
+      <a href="#contact" class="sidebar__item">Contact Us</a>
+    </div>
+
+    <!-- Navigation Section-->
+    <div class="navbar">
+      <div class="navbar__hamburger">
+        <span class="navbar__hamburger-item"></span>
+        <span class="navbar__hamburger-item"></span>
+        <span class="navbar__hamburger-item"></span>
+      </div>
+      <div class="navbar__brand-container">
+        <a class="navbar__brand" href="#home">
+          <span class="fa-stack fa-2x">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-crown fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </div>
+      <div class="navbar__items-container">
+        <ul class="navbar__items">
+          <li class="navbar__item"><a href="#about">About</a></li>
+          <li class="navbar__item"><a href="#family">Royal Family</a></li>
+          <li class="navbar__item"><a href="#assets">Royal Assets</a></li>
+          <li class="navbar__item"><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main">
+      <!-- Hero Section -->
+      <div id="home" class="hero">
+        <div class="hero__text-container">
+          <h1 class="hero__text">Welcome to the Kingdom of Colchis</h1>
+        </div>
+        <div class="hero__carousel">
+          <div class="hero__carousel-transition"></div>
+          <div class="hero__carousel-item carousel-item-1"></div>
+          <div class="hero__carousel-item carousel-item-2"></div>
+          <div class="hero__carousel-item carousel-item-3"></div>
+        </div>
+      </div>
+
+      <!-- About Section -->
+      <div id="about" class="about">
+        <h1 class="about__title main__title">About the Kingdom</h1>
+        <p class="about__content">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, nisi
+          ipsa. Consectetur quasi odio, assumenda veniam suscipit perferendis,
+          quis delectus reprehenderit pariatur voluptates nemo facere esse
+          dignissimos neque necessitatibus cupiditate? Lorem ipsum dolor, sit
+          amet consectetur adipisicing elit. Ratione aperiam sint dolorum
+          suscipit? Blanditiis consectetur, at quia facere, exercitationem
+          quaerat doloremque esse nostrum amet, nobis officia! Eaque magnam
+          ducimus vero.
+        </p>
+      </div>
+
+      <!-- Family Section -->
+      <div id="family" class="family">
+        <h1 class="family__title main__title">The Royal Family</h1>
+        <div class="family__items">
+          <div class="family__item">
+            <div class="family__item-img-1"></div>
+            <h2 class="family__item-name">King Aeëtes</h2>
+          </div>
+          <div class="family__item">
+            <div class="family__item-img-2"></div>
+            <h2 class="family__item-name">Princess Madeas</h2>
+          </div>
+          <div class="family__item">
+            <div class="family__item-img-3"></div>
+            <h2 class="family__item-name">Queen Idyia</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Assets Section -->
+      <div id="assets" class="assets">
+        <h1 class="assets__title main__title">The Kingdom's Royal Assets</h1>
+        <div class="assets__container">
+          <table class="assets__table">
+            <thead>
+              <tr>
+                <th>Asset Name</th>
+                <th>Number</th>
+                <th>Worth</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Stables</td>
+                <td>42</td>
+                <td>6k lari</td>
+              </tr>
+              <tr>
+                <td>Castles</td>
+                <td>4</td>
+                <td>24k lari</td>
+              </tr>
+              <tr>
+                <td>Farm</td>
+                <td>100</td>
+                <td>40k lari</td>
+              </tr>
+              <tr>
+                <td>Inn</td>
+                <td>3</td>
+                <td>9k lari</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="contact" id="contact">
+        <h1 class="contact__title main__title">Contact the Royal Kingdom</h1>
+        <form action="#" class="contact__form">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Enter your name"
+          />
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter your email address"
+          />
+          <label for="message">Message</label>
+          <textarea
+            name="message"
+            id="message"
+            cols="30"
+            rows="10"
+            placeholder="Your message..."
+          ></textarea>
+          <div class="contact__form-button">
+            <h3>Submit</h3>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
