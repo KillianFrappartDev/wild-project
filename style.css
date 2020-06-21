@@ -331,6 +331,13 @@ a:active {
   animation: fade-in 2s linear 1 forwards;
 }
 
+/* ----- Mobile ----- */
+@media screen and (max-width: 600px) {
+  .hero__carousel-transition {
+    display: none;
+  }
+}
+
 /* ABOUT */
 .about {
   height: calc(50vh - 80px);
@@ -464,6 +471,12 @@ tr:nth-child(even) {
     th, td {
         padding: 1rem 4rem;
     }
+}
+
+@media screen and (max-width: 600px) {
+  th, td {
+      padding: 1rem 1rem;
+  }
 }
 
 /* CONTACT */
