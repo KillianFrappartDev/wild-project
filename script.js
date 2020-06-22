@@ -44,10 +44,9 @@ setInterval(() => {
     currentIndex++;
   }
   carouselItems[currentIndex].classList.add("carousel-active");
-  carouselItems[currentIndex].style.zIndex += 1;
-}, 8000);
+}, 5000);
 
-//Chat
+//CHAT
 // ---> Variables
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
@@ -56,57 +55,75 @@ const submitBtn = document.querySelector(".contact__form-button");
 const chat = document.querySelector(".chat");
 const chatBox = document.querySelector(".chat__messages");
 const chatBtn = document.querySelector(".chat__input-btn");
+const chatClose = document.querySelector(".chat-close");
 const userInput = document.querySelector(".chat__input");
 let userName;
+let isBotactive = false;
 
 // ---> Event Listeners
-submitBtn.addEventListener("click", () => {
+submitBtn.addEventListener("click", botInit);
+
+chatBtn.addEventListener("click", () => {
+  if (userInput.value.trim()) {
+    const userMsg = userInput.value;
+    const newMsg = document.createElement("div");
+    newMsg.classList.add("chat__user-text");
+    newMsg.innerHTML = userMsg;
+    chatBox.appendChild(newMsg);
+    userInput.value = "";
+    setTimeout(() => {
+      getJoke();
+    }, 1000);
+  }
+});
+
+chatClose.addEventListener("click", botClear);
+
+// ---> Functions
+function botInit() {
   if (
     nameInput.value.trim() &&
     emailInput.value.trim() &&
-    messageInput.value.trim()
+    messageInput.value.trim() &&
+    isBotactive === false
   ) {
     userName = nameInput.value;
     nameInput.value = "";
     emailInput.value = "";
     messageInput.value = "";
+    isBotactive = true;
     chat.classList.add("visible-chat");
 
     const welcomeMsg = document.createElement("div");
     welcomeMsg.classList.add("chat__robot-text");
-    welcomeMsg.innerHTML = "Hello " + userName + " your message has been successfully sent ! ✔";
+    welcomeMsg.innerHTML =
+      "Hello " + userName + " your message has been successfully sent ! ✔";
     setTimeout(() => {
-        chatBox.appendChild(welcomeMsg);
-    }, 1000)
+      chatBox.appendChild(welcomeMsg);
+    }, 500);
 
     const secondMsg = document.createElement("div");
     secondMsg.classList.add("chat__robot-text");
-    secondMsg.innerHTML = "I'm a dummy robot, I can only tell jokes... Do you want to laugh ? ";
+    secondMsg.innerHTML =
+      "I'm a dummy robot, I can only tell jokes... Do you want to laugh ? ";
     setTimeout(() => {
-        chatBox.appendChild(secondMsg);
-    }, 2000)
-
+      chatBox.appendChild(secondMsg);
+    }, 1500);
   } else {
     alert("Inputs can not be empty, please type something first");
   }
-});
+}
 
-chatBtn.addEventListener("click", () => {
-    if (userInput.value.trim()) {
-        const userMsg = userInput.value;
-        const newMsg = document.createElement("div");
-        newMsg.classList.add("chat__user-text");
-        newMsg.innerHTML = userMsg;
-        chatBox.appendChild(newMsg);
-        userInput.value = "";
-        setTimeout(() => {
-            getJoke();
-        }, 1000)
-    }
-});
+function botClear() {
+  chat.classList.remove("visible-chat");
+  chatBox.innerHTML = "";
+  isBotactive = false;
+}
 
-// ---> Functions
 function getJoke() {
+  const newJoke = document.createElement("div");
+  newJoke.classList.add("chat__robot-text");
+
   fetch("https://joke3.p.rapidapi.com/v1/joke", {
     method: "GET",
     headers: {
@@ -118,12 +135,11 @@ function getJoke() {
       return response.json();
     })
     .then((jokeObj) => {
-        const newJoke = document.createElement("div");
-        newJoke.classList.add("chat__robot-text");
-        newJoke.innerHTML = jokeObj.content;
-        chatBox.appendChild(newJoke);
+      newJoke.innerHTML = jokeObj.content;
+      chatBox.appendChild(newJoke);
     })
     .catch((err) => {
-      console.log(err);
+      newJoke.innerHTML = "Something went wrong, try again...";
+      chatBox.appendChild(newJoke);
     });
 }
